@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="title" content="About Us - Safemoon Cash Strategy Team">
+    <meta name="description" content="Meet the Safemoon Cash strategy team - dedicated professionals from around the world working together to build a community-driven cryptocurrency project.">
+    <link rel="canonical" href="https://safemooncash.org/about.html">
+    <title>About Us - Safemoon Cash</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #0a0a0a;
+            color: #ffffff;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header Styles */
+        header {
+            background-color: #161141;
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 60px;
+            width: auto;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 30px;
+        }
+
+        nav a {
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav a:hover,
+        nav a.active {
+            color: #d4870d;
+        }
+
+        .mobile-toggle {
+            display: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: #ffffff;
+        }
+
+        /* Page Header */
+        .page-header {
+            background: linear-gradient(135deg, #161141 0%, #2a1f5e 100%);
+            padding: 80px 0 60px;
+            text-align: center;
+        }
+
+        .page-header h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+
+        .page-header p {
+            font-size: 18px;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* Team Section */
+        .team-section {
+            padding: 80px 0;
+            background-color: #1a1a1a;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 36px;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 18px;
+            color: #d4870d;
+            margin-bottom: 50px;
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .team-member {
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .team-member:hover {
+            transform: translateY(-10px);
+        }
+
+        .avatar {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #d4870d 0%, #b8730a 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 48px;
+            font-weight: bold;
+            color: #ffffff;
+            margin: 0 auto 20px;
+            box-shadow: 0 5px 20px rgba(212, 135, 13, 0.3);
+            border: 4px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .team-member h3 {
+            font-size: 22px;
+            margin-bottom: 5px;
+            color: #ffffff;
+        }
+
+        .team-member .country {
+            font-size: 14px;
+            color: #d4870d;
+            margin-bottom: 5px;
+            font-weight: 600;
+        }
+
+        .team-member .role {
+            font-size: 16px;
+            color: #cccccc;
+        }
+
+        /* Mission Section */
+        .mission-section {
+            padding: 80px 0;
+            background: linear-gradient(135deg, #2a1f5e 0%, #161141 100%);
+        }
+
+        .mission-content {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .mission-content h2 {
+            font-size: 36px;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .mission-content p {
+            font-size: 18px;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .value-box {
+            background-color: rgba(255,255,255,0.05);
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .value-box i {
+            font-size: 48px;
+            color: #d4870d;
+            margin-bottom: 20px;
+        }
+
+        .value-box h3 {
+            font-size: 22px;
+            margin-bottom: 15px;
+        }
+
+        .value-box p {
+            font-size: 16px;
+            line-height: 1.6;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #161141;
+            padding: 60px 0 20px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 50px;
+            margin-bottom: 40px;
+        }
+
+        .footer-logo img {
+            max-width: 200px;
+            margin-bottom: 20px;
+        }
+
+        .contact-info {
+            margin-bottom: 20px;
+        }
+
+        .contact-info ul {
+            list-style: none;
+        }
+
+        .contact-info li {
+            margin-bottom: 15px;
+            display: flex;
+            gap: 10px;
+        }
+
+        .contact-info i {
+            color: #d4870d;
+            margin-top: 3px;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin-bottom: 30px;
+        }
+
+        .social-icons a {
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255,255,255,0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            color: #ffffff;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+
+        .social-icons a:hover {
+            background-color: #d4870d;
+            transform: scale(1.1);
+        }
+
+        .footer-links ul {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: #ffffff;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: #d4870d;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .mobile-toggle {
+                display: block;
+            }
+
+            nav ul {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 80px;
+                left: 0;
+                right: 0;
+                background-color: #161141;
+                padding: 20px;
+            }
+
+            nav ul.active {
+                display: flex;
+            }
+
+            .page-header h1 {
+                font-size: 32px;
+            }
+
+            .team-grid {
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <a href="index.html">
+                        <img src="https://web.archive.org/web/20210612061449/https://safemooncash.org/wp-content/uploads/2021/06/logo-1.png" alt="Safemoon Cash Logo">
+                    </a>
+                </div>
+                <nav>
+                    <a class="mobile-toggle" onclick="toggleMenu()"><i class="fas fa-bars"></i></a>
+                    <ul id="mainMenu">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html" class="active">About</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>About Safemoon Cash</h1>
+            <p>We are a passionate team of crypto enthusiasts from around the world, united by our vision to create a truly community-driven cryptocurrency project.</p>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="team-section">
+        <div class="container">
+            <h2 class="section-title">STRATEGY TEAM</h2>
+            <p class="section-subtitle">Meet the dedicated professionals behind Safemoon Cash</p>
+
+            <div class="team-grid">
+                <div class="team-member">
+                    <div class="avatar">CL</div>
+                    <h3>Connor Leach</h3>
+                    <p class="country">USA</p>
+                    <p class="role">Chief of Marketing</p>
+                </div>
+
+                <div class="team-member">
+                    <div class="avatar">NH</div>
+                    <h3>Nathan Harris</h3>
+                    <p class="country">UK</p>
+                    <p class="role">Senior Strategist and Marketer</p>
+                </div>
+
+                <div class="team-member">
+                    <div class="avatar">BV</div>
+                    <h3>Boris Volkov</h3>
+                    <p class="country">THE NETHERLANDS</p>
+                    <p class="role">Strategy Lead</p>
+                </div>
+
+                <div class="team-member">
+                    <div class="avatar">MK</div>
+                    <h3>Marco Klein</h3>
+                    <p class="country">GERMANY</p>
+                    <p class="role">Strategist and Marketer</p>
+                </div>
+
+                <div class="team-member">
+                    <div class="avatar">PR</div>
+                    <h3>Paolo Rossi</h3>
+                    <p class="country">ITALY</p>
+                    <p class="role">Technical Wizard</p>
+                </div>
+
+                <div class="team-member">
+                    <div class="avatar">MA</div>
+                    <h3>Majid Ahmed</h3>
+                    <p class="country">CANADA</p>
+                    <p class="role">Business and PR Consultant</p>
+                </div>
+
+                <div class="team-member">
+                    <div class="avatar">SM</div>
+                    <h3>Sascha Mueller</h3>
+                    <p class="country">GERMANY</p>
+                    <p class="role">Strategist and Marketer</p>
+                </div>
+
+                <div class="team-member">
+                    <div class="avatar">MH</div>
+                    <h3>Mohamed Hassan</h3>
+                    <p class="country">UNITED ARAB EMIRATES</p>
+                    <p class="role">Strategist and PR</p>
+                </div>
+
+                <div class="team-member">
+                    <div class="avatar">IS</div>
+                    <h3>Isabella Smith</h3>
+                    <p class="country">UK</p>
+                    <p class="role">Community Manager</p>
+                </div>
+
+                <div class="team-member">
+                    <div class="avatar">WJ</div>
+                    <h3>William Jones</h3>
+                    <p class="country">THE NETHERLANDS</p>
+                    <p class="role">Marketing Specialist</p>
+                </div>
+
+                <div class="team-member">
+                    <div class="avatar">LC</div>
+                    <h3>Lisa Chen</h3>
+                    <p class="country">SINGAPORE</p>
+                    <p class="role">Blockchain Developer</p>
+                </div>
+
+                <div class="team-member">
+                    <div class="avatar">JD</div>
+                    <h3>James Davis</h3>
+                    <p class="country">AUSTRALIA</p>
+                    <p class="role">Graphic Designer</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mission Section -->
+    <section class="mission-section">
+        <div class="container">
+            <div class="mission-content">
+                <h2>Our Mission</h2>
+                <p>At Safemoon Cash, we believe in creating a truly decentralized and community-owned cryptocurrency that empowers holders through innovative tokenomics. Our mission is to build a transparent, secure, and rewarding ecosystem where every member has a voice and benefits from the collective success.</p>
+
+                <p>We are committed to maintaining the highest standards of security, transparency, and community engagement. With ownership renounced and liquidity burned, we've created a rug-proof project that puts the community first.</p>
+
+                <div class="values-grid">
+                    <div class="value-box">
+                        <i class="fas fa-shield-alt"></i>
+                        <h3>Security First</h3>
+                        <p>Audited smart contracts and renounced ownership ensure your investment is protected.</p>
+                    </div>
+
+                    <div class="value-box">
+                        <i class="fas fa-users"></i>
+                        <h3>Community Driven</h3>
+                        <p>Every decision is made with our community's best interests at heart.</p>
+                    </div>
+
+                    <div class="value-box">
+                        <i class="fas fa-chart-line"></i>
+                        <h3>Sustainable Growth</h3>
+                        <p>Our tokenomics ensure steady, organic growth for long-term success.</p>
+                    </div>
+
+                    <div class="value-box">
+                        <i class="fas fa-handshake"></i>
+                        <h3>Transparency</h3>
+                        <p>Open communication and verifiable on-chain data keep us accountable.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-info">
+                    <div class="footer-logo">
+                        <img src="https://web.archive.org/web/20210612061449/https://safemooncash.org/wp-content/uploads/2021/06/logo-1.png" alt="Safemoon Cash">
+                    </div>
+                    <div class="contact-info">
+                        <ul>
+                            <li>
+                                <i class="far fa-dot-circle"></i>
+                                <span><strong>Location:</strong> The Internet</span>
+                            </li>
+                            <li>
+                                <i class="far fa-envelope"></i>
+                                <span><strong>Contact Us:</strong> <a href="mailto:team@safemooncash.org">team@safemooncash.org</a></span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="footer-social">
+                    <div class="social-icons">
+                        <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
+                        <a href="#" target="_blank"><i class="fab fa-telegram"></i></a>
+                        <a href="#" target="_blank"><i class="fab fa-reddit"></i></a>
+                        <a href="#" target="_blank"><i class="fab fa-discord"></i></a>
+                        <a href="#" target="_blank"><i class="fab fa-youtube"></i></a>
+                        <a href="#" target="_blank"><i class="fab fa-tiktok"></i></a>
+                        <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a href="#" target="_blank"><i class="fab fa-medium"></i></a>
+                        <a href="#" target="_blank"><i class="fab fa-github"></i></a>
+                    </div>
+                    <div class="footer-links">
+                        <ul>
+                            <li><a href="index.html">Home</a></li>
+                            <li><a href="about.html">About</a></li>
+                            <li><a href="contact.html">Contact</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>Safemoon Cash - All Right Reserved 2021</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            const menu = document.getElementById('mainMenu');
+            menu.classList.toggle('active');
+        }
+    </script>
+</body>
+</html>
