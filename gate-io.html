@@ -1,0 +1,966 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="title" content="Gate.io Fundraising - Safemoon Cash">
+    <meta name="description" content="Support the Safemoon Cash Gate.io listing fundraising campaign. 100k $SMC Required!">
+    <link rel="canonical" href="https://safemooncash.org/gate-io">
+    <title>Gate.io Fundraising - Safemoon Cash</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #0a0a0a;
+            color: #ffffff;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header Styles */
+        header {
+            background-color: #161141;
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 60px;
+            width: auto;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 30px;
+        }
+
+        nav a {
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav a:hover,
+        nav a.active {
+            color: #d4870d;
+        }
+
+        .mobile-toggle {
+            display: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: #ffffff;
+        }
+
+        /* Main Content */
+        .main-content {
+            padding: 60px 0;
+            min-height: calc(100vh - 400px);
+        }
+
+        .wpneocf-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Campaign Styles */
+        .wpneo-list-details {
+            background-color: #1a1a1a;
+            padding: 40px;
+            border-radius: 10px;
+        }
+
+        .wpneo-campaign-single-left-info {
+            margin-bottom: 40px;
+        }
+
+        .woocommerce-product-gallery img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        .wpneo-single-short-description {
+            margin-top: 30px;
+            padding: 20px;
+            background-color: rgba(255,255,255,0.05);
+            border-radius: 8px;
+        }
+
+        .wpneo-single-short-description h2 {
+            color: #d4870d;
+            margin-bottom: 15px;
+            font-size: 24px;
+        }
+
+        .wpneo-campaign-summary {
+            background-color: rgba(255,255,255,0.05);
+            padding: 30px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+        }
+
+        .wpneo-campaign-title {
+            font-size: 32px;
+            margin-bottom: 15px;
+            color: #d4870d;
+        }
+
+        .campaign-funding-info ul {
+            list-style: none;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .campaign-funding-info li {
+            text-align: center;
+            padding: 20px;
+            background-color: rgba(255,255,255,0.05);
+            border-radius: 8px;
+        }
+
+        .funding-amount {
+            font-size: 24px;
+            font-weight: bold;
+            color: #d4870d;
+            margin-bottom: 10px;
+        }
+
+        .info-text {
+            font-size: 14px;
+            color: #cccccc;
+        }
+
+        .wpneo-raised-bar {
+            margin: 20px 0;
+        }
+
+        #neo-progressbar {
+            background-color: rgba(255,255,255,0.1);
+            height: 30px;
+            border-radius: 15px;
+            overflow: hidden;
+        }
+
+        #neo-progressbar div {
+            background: linear-gradient(90deg, #d4870d 0%, #f4a12d 100%);
+            height: 100%;
+            transition: width 0.3s;
+        }
+
+        .wpneo-single-sidebar {
+            margin: 30px 0;
+            padding: 30px;
+            background-color: rgba(212, 135, 13, 0.1);
+            border-radius: 8px;
+            border: 2px solid #d4870d;
+        }
+
+        .wpneo-single-sidebar input[type="number"] {
+            width: calc(100% - 80px);
+            padding: 15px;
+            font-size: 18px;
+            border: 2px solid #d4870d;
+            background-color: rgba(0,0,0,0.3);
+            color: #ffffff;
+            border-radius: 5px;
+            margin-right: 10px;
+        }
+
+        .wpneo_donate_button {
+            padding: 15px 30px;
+            background-color: #d4870d;
+            color: #ffffff;
+            border: none;
+            border-radius: 5px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .wpneo_donate_button:hover {
+            background-color: #b8730a;
+            transform: scale(1.05);
+        }
+
+        .social-container {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin: 30px 0;
+            padding: 20px;
+            background-color: rgba(255,255,255,0.05);
+            border-radius: 8px;
+        }
+
+        .social-container .links {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-container a {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            color: #ffffff;
+            transition: all 0.3s;
+        }
+
+        .social-container a:hover {
+            background-color: #d4870d;
+            transform: scale(1.1);
+        }
+
+        /* Tabs */
+        .wpneo-tabs {
+            margin-top: 40px;
+        }
+
+        .wpneo-tabs-menu {
+            list-style: none;
+            display: flex;
+            gap: 10px;
+            border-bottom: 2px solid rgba(255,255,255,0.1);
+            margin-bottom: 30px;
+        }
+
+        .wpneo-tabs-menu li {
+            padding: 15px 30px;
+            cursor: pointer;
+            border-radius: 5px 5px 0 0;
+            transition: all 0.3s;
+        }
+
+        .wpneo-tabs-menu li.wpneo-current {
+            background-color: #d4870d;
+        }
+
+        .wpneo-tabs-menu li:hover {
+            background-color: rgba(212, 135, 13, 0.5);
+        }
+
+        .wpneo-tab-content {
+            display: none;
+        }
+
+        .wpneo-tab-content:first-of-type {
+            display: block;
+        }
+
+        .tab-description h2 {
+            color: #d4870d;
+            margin-bottom: 20px;
+        }
+
+        /* Table Styles */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        table th,
+        table td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        table th {
+            background-color: rgba(212, 135, 13, 0.2);
+            color: #d4870d;
+            font-weight: bold;
+        }
+
+        table tr:hover {
+            background-color: rgba(255,255,255,0.05);
+        }
+
+        /* Footer */
+        footer {
+            background-color: #161141;
+            padding: 60px 0 20px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 50px;
+            margin-bottom: 40px;
+        }
+
+        .footer-logo img {
+            max-width: 200px;
+            margin-bottom: 20px;
+        }
+
+        .contact-info {
+            margin-bottom: 20px;
+        }
+
+        .contact-info ul {
+            list-style: none;
+        }
+
+        .contact-info li {
+            margin-bottom: 15px;
+            display: flex;
+            gap: 10px;
+        }
+
+        .contact-info i {
+            color: #d4870d;
+            margin-top: 3px;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin-bottom: 30px;
+        }
+
+        .social-icons a {
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255,255,255,0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            color: #ffffff;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+
+        .social-icons a:hover {
+            background-color: #d4870d;
+            transform: scale(1.1);
+        }
+
+        .footer-links ul {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: #ffffff;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: #d4870d;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .mobile-toggle {
+                display: block;
+            }
+
+            nav ul {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 80px;
+                left: 0;
+                right: 0;
+                background-color: #161141;
+                padding: 20px;
+            }
+
+            nav ul.active {
+                display: flex;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+
+            .campaign-funding-info ul {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <a href="index.html">
+                        <img src="https://iili.io/KUDUSZx.md.png" alt="Safemoon Cash Logo">
+                    </a>
+                </div>
+                <nav>
+                    <a class="mobile-toggle" onclick="toggleMenu()"><i class="fas fa-bars"></i></a>
+                    <ul id="mainMenu">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="gate-io.html" class="active">Gate.io</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <section class="main-content">
+        <div class="container">
+            <div class="wpneocf-container">
+<div id="primary" class="content-area">
+<div id="content" class="site-content" role="main">
+<div class="wpneo-list-details">
+<div itemscope="" itemtype="http://schema.org/ItemList" id="campaign-664" class="post-664 product type-product status-publish has-post-thumbnail product_cat-uncategorized first instock sold-individually shipping-taxable purchasable product-type-crowdfunding">
+<div class="wpneo-campaign-single-left-info">
+<div class="woocommerce-product-gallery woocommerce-product-gallery--with-images woocommerce-product-gallery--columns-4 images" data-columns="4" style="opacity: 1; transition: opacity .25s ease-in-out;">
+<figure class="woocommerce-product-gallery__wrapper">
+<div data-thumb="https://safemooncash.org/wp-content/uploads/2021/06/gate1-150x150.png" class="woocommerce-product-gallery__image"><a itemprop="image" class="woocommerce-main-image cloud-zoom" href="https://web.archive.org/web/20210702112626/https://safemooncash.org/wp-content/uploads/2021/06/gate1.png"><img width="225" height="225" src="https://web.archive.org/web/20210702112626im_/https://safemooncash.org/wp-content/uploads/2021/06/gate1.png" class="attachment-shop_single size-shop_single wp-post-image" alt="" title="" data-src="https://web.archive.org/web/20210702112626/https://safemooncash.org/wp-content/uploads/2021/06/gate1.png" data-large_image="https://web.archive.org/web/20210702112626/https://safemooncash.org/wp-content/uploads/2021/06/gate1.png" data-large_image_width="225" data-large_image_height="225"></a></div><div id="campaign_loved_html">
+<a href="javascript:;" id="love_this_campaign" data-campaign-id="664"><i class="wpneo-icon wpneo-icon-love-empty"></i></a></div>
+<div class="product-thumbnails thumbnails">
+<div class="product-thumbs-slider owl-carousel has-ccols ccols-4"><div class="img-thumbnail"><img class="woocommerce-main-thumb img-responsive" alt="gate1" src="https://web.archive.org/web/20210702112626im_/https://safemooncash.org/wp-content/uploads/2021/06/gate1-150x150.png"></div></div></div>
+</figure>
+</div>
+<div style="clear: both"></div>
+<div class="wpneo-single-short-description">
+<h2>Short Story</h2>
+<div itemprop="description">
+<p>We're raising funds for Gate.io Listing.</p>
+<p>100k $SMC Required!</p>
+</div>
+</div>
+</div> <div class="wpneo-campaign-summary">
+<div class="wpneo-campaign-summary-inner" itemscope="" itemtype="http://schema.org/DonateAction">
+<h2 class="wpneo-campaign-title">$SMC Fund Raising for Gate.io</h2><p class="wpneo-author-info">
+by <a href="javascript:;" data-author="5" class="wpneo-fund-modal-btn">dwdqwdqdw qwdqdqdq</a>
+</p><div class="woocommerce"></div>
+<div class="campaign-funding-info">
+<ul>
+<li>
+<p class="funding-amount">
+<span class="woocommerce-Price-amount amount"><bdi><span class="woocommerce-Price-currencySymbol">$</span>105,000.00</bdi></span> </p>
+<span class="info-text">Funding Goal</span>
+</li>
+<li>
+<p class="funding-amount"><span class="woocommerce-Price-amount amount"><bdi><span class="woocommerce-Price-currencySymbol">$</span>22,635.00</bdi></span></p>
+<span class="info-text">Funds Raised</span>
+</li>
+<li>
+<p class="funding-amount">28</p>
+<span class="info-text">Days to go</span>
+</li>
+<li>
+<p class="funding-amount">
+Target Goal </p>
+<span class="info-text">Campaign End Method</span>
+</li>
+</ul>
+</div><div class="wpneo-raised-percent">
+<div class="wpneo-meta-name">Raised Percent :</div>
+<div class="wpneo-meta-desc">21.56%</div>
+</div>
+<div class="wpneo-raised-bar">
+<div id="neo-progressbar">
+<div style="width: 21.56%"></div>
+</div>
+</div><div class="wpneo-single-sidebar ASA">
+<span class="wpneo-tooltip">
+<span class="wpneo-tooltip-min">Minimum amount is $10</span>
+<span class="wpneo-tooltip-max">Maximum amount is $</span>
+<span class="wpneo-tooltip-empty">Put a valid number</span>
+</span>
+<form enctype="multipart/form-data" method="post" class="cart AA">
+$
+<input oninput="this.value = this.value.replace(/[^0-9\.]/g, '').split(/\./).slice(0, 2).join('.')" type="number" step="any" min="0" placeholder="500" name="wpneo_donate_amount_field" class="input-text amount wpneo_donate_amount_field text" value="500" data-min-price="10" data-max-price="">
+<input type="hidden" value="664" name="add-to-cart">
+<button type="submit" class="wpneo_donate_button">Back Campaign</button>
+</form>
+</div> <div class="wpneo-location-wrapper">
+<i class="wpneo-icon wpneo-icon-location"></i>
+<span>, United States (US)</span>
+</div>
+<div class="wpneo-campaign-creator-info-wrapper">
+<div class="wpneo-campaign-creator-avatar">
+<img alt="" src="https://web.archive.org/web/20210702112626im_/https://secure.gravatar.com/avatar/8241b4c2f55cf1ae408fc59af244cdf0?s=80&amp;d=retro&amp;r=g" srcset="https://web.archive.org/web/20210702112626im_/https://secure.gravatar.com/avatar/8241b4c2f55cf1ae408fc59af244cdf0?s=160&amp;d=retro&amp;r=g 2x" class="avatar avatar-80 photo" height="80" width="80"> </div>
+<div class="wpneo-campaign-creator-details">
+<p><a href="javascript:;" data-author="5" class="wpneo-fund-modal-btn">dwdqwdqdw qwdqdqdq</a> </p>
+<p>1 Campaigns | 0 Loved campaigns </p>
+<p><a href="javascript:;" data-author="5" class="wpneo-fund-modal-btn wpneo-link-style1"><strong>See full bio</strong></a></p>
+</div>
+</div> </div>
+</div>
+<div class="social-container">
+<span>Share: </span>
+<div class="links">
+<a href="javascript:;" class="wpcf-share s_facebook"><i class="wpneo-icon wpneo-icon-facebook"></i> </a>
+<a href="javascript:;" class="wpcf-share s_twitter"><i class="wpneo-icon wpneo-icon-twitter"></i> </a>
+<a href="javascript:;" class="wpcf-share s_reddit"><i class="wpneo-icon wpneo-icon-reddit"></i> </a>
+<a href="javascript:;" class="wpcf-share s_whatsapp"><i class="wpneo-icon wpneo-icon-whatsapp"></i> </a>
+</div>
+</div>
+<script type="text/javascript">
+                jQuery(document).ready(function($){
+                    $('.wpcf-share').ShareLink({
+                        title: "$SMC Fund Raising for Gate.io",
+                        text: "were-raising-funds-for-gate-io-listing-100k-smc-required",
+                        image: "https://web.archive.org/web/20210702112626/https://safemooncash.org/wp-content/uploads/2021/06/gate1.png",
+                        url: "https://web.archive.org/web/20210702112626/https://safemooncash.org/campaign/gate-io/"
+                    });
+                });
+            </script>
+<div class="wpneo-tabs">
+<ul class="wpneo-tabs-menu">
+<li class="wpneo-current description_tab">
+<a href="#wpneo-tab-description">Campaign Story</a>
+</li>
+<li class=" baker_list_tab">
+<a href="#wpneo-tab-baker_list">Backer List</a>
+</li>
+<li class=" reviews_tab">
+<a href="#wpneo-tab-reviews">Reviews (0)</a>
+</li>
+</ul>
+<div class="wpneo-tab">
+<div id="wpneo-tab-description" class="wpneo-tab-content">
+<div class="tab-description tab_col_9 tab-campaign-story-left">
+<h2>Campaign Story</h2>
+<p>We're raising funds for Gate.io Listing.</p>
+<p>100k $SMC Required!</p>
+</div>
+<div class="tab-rewards tab_col_3 tab-campaign-story-right">
+<div style="clear: both"></div> <div style="clear: both"></div>
+</div> </div>
+<div id="wpneo-tab-baker_list" class="wpneo-tab-content">
+<table>
+<tbody><tr>
+<th>Name</th>
+<th>Donate Amount</th>
+<th>Date</th>
+</tr>
+<tr>
+<td>
+Anonymous </td>
+<td>
+<span class="woocommerce-Price-amount amount"><bdi><span class="woocommerce-Price-currencySymbol">$</span>10.00</bdi></span> </td>
+<td>July 01, 2021</td>
+</tr>
+<tr>
+<td>
+Anonymous </td>
+<td>
+<span class="woocommerce-Price-amount amount"><bdi><span class="woocommerce-Price-currencySymbol">$</span>25.00</bdi></span> </td>
+<td>July 01, 2021</td>
+</tr>
+<tr>
+<td>
+Anonymous </td>
+<td>
+<span class="woocommerce-Price-amount amount"><bdi><span class="woocommerce-Price-currencySymbol">$</span>10.00</bdi></span> </td>
+<td>June 30, 2021</td>
+</tr>
+<tr>
+<td>
+Anonymous </td>
+<td>
+<span class="woocommerce-Price-amount amount"><bdi><span class="woocommerce-Price-currencySymbol">$</span>50.00</bdi></span> </td>
+<td>June 30, 2021</td>
+</tr>
+<tr>
+<td>
+Anonymous </td>
+<td>
+<span class="woocommerce-Price-amount amount"><bdi><span class="woocommerce-Price-currencySymbol">$</span>10.00</bdi></span> </td>
+<td>June 30, 2021</td>
+</tr>
+<tr>
+<td>
+Anonymous </td>
+<td>
+<span class="woocommerce-Price-amount amount"><bdi><span class="woocommerce-Price-currencySymbol">$</span>10.00</bdi></span> </td>
+<td>June 29, 2021</td>
+</tr>
+<tr>
+<td>
+Anonymous </td>
+<td>
+<span class="woocommerce-Price-amount amount"><bdi><span class="woocommerce-Price-currencySymbol">$</span>4,500.00</bdi></span> </td>
+<td>June 29, 2021</td>
+</tr>
+<tr>
+<td>
+Anonymous </td>
+<td>
+<span class="woocommerce-Price-amount amount"><bdi><span class="woocommerce-Price-currencySymbol">$</span>10.00</bdi></span> </td>
+<td>June 29, 2021</td>
+</tr>
+<tr>
+<td>
+Anonymous </td>
+<td>
+<span class="woocommerce-Price-amount amount"><bdi><span class="woocommerce-Price-currencySymbol">$</span>2,000.00</bdi></span> </td>
+<td>June 29, 2021</td>
+</tr>
+<tr>
+<td>
+Anonymous </td>
+<td>
+<span class="woocommerce-Price-amount amount"><bdi><span class="woocommerce-Price-currencySymbol">$</span>10.00</bdi></span> </td>
+<td>June 29, 2021</td>
+</tr>
+<tr>
+<td>
+Anonymous </td>
+<td>
+<span class="woocommerce-Price-amount amount"><bdi><span class="woocommerce-Price-currencySymbol">$</span>2,000.00</bdi></span> </td>
+<td>June 28, 2021</td>
+</tr>
+<tr>
+<td>
+Anonymous </td>
+<td>
+<span class="woocommerce-Price-amount amount"><bdi><span class="woocommerce-Price-currencySymbol">$</span>2,000.00</bdi></span> </td>
+<td>June 28, 2021</td>
+</tr>
+<tr>
+<td>
+Anonymous </td>
+<td>
+<span class="woocommerce-Price-amount amount"><bdi><span class="woocommerce-Price-currencySymbol">$</span>485.00</bdi></span> </td>
+<td>June 28, 2021</td>
+</tr>
+<tr>
+<td>
+Anonymous </td>
+<td>
+<span class="woocommerce-Price-amount amount"><bdi><span class="woocommerce-Price-currencySymbol">$</span>100.00</bdi></span> </td>
+<td>June 28, 2021</td>
+</tr>
+<tr>
+<td>
+Anonymous </td>
+<td>
+<span class="woocommerce-Price-amount amount"><bdi><span class="woocommerce-Price-currencySymbol">$</span>10.00</bdi></span> </td>
+<td>June 28, 2021</td>
+</tr>
+<tr>
+<td>
+Anonymous </td>
+<td>
+<span class="woocommerce-Price-amount amount"><bdi><span class="woocommerce-Price-currencySymbol">$</span>100.00</bdi></span> </td>
+<td>June 28, 2021</td>
+</tr>
+<tr>
+<td>
+Anonymous </td>
+<td>
+<span class="woocommerce-Price-amount amount"><bdi><span class="woocommerce-Price-currencySymbol">$</span>200.00</bdi></span> </td>
+<td>June 28, 2021</td>
+</tr>
+<tr>
+<td>
+Anonymous </td>
+<td>
+<span class="woocommerce-Price-amount amount"><bdi><span class="woocommerce-Price-currencySymbol">$</span>10.00</bdi></span> </td>
+<td>June 28, 2021</td>
+</tr>
+<tr>
+<td>
+Anonymous </td>
+<td>
+<span class="woocommerce-Price-amount amount"><bdi><span class="woocommerce-Price-currencySymbol">$</span>1,000.00</bdi></span> </td>
+<td>June 28, 2021</td>
+</tr>
+<tr>
+<td>
+Anonymous </td>
+<td>
+<span class="woocommerce-Price-amount amount"><bdi><span class="woocommerce-Price-currencySymbol">$</span>1,000.00</bdi></span> </td>
+<td>June 27, 2021</td>
+</tr>
+<tr>
+<td>
+Anonymous </td>
+<td>
+<span class="woocommerce-Price-amount amount"><bdi><span class="woocommerce-Price-currencySymbol">$</span>1,000.00</bdi></span> </td>
+<td>June 27, 2021</td>
+</tr>
+<tr>
+<td>
+Anonymous </td>
+<td>
+<span class="woocommerce-Price-amount amount"><bdi><span class="woocommerce-Price-currencySymbol">$</span>10.00</bdi></span> </td>
+<td>June 27, 2021</td>
+</tr>
+<tr>
+<td>
+Anonymous </td>
+<td>
+ <span class="woocommerce-Price-amount amount"><bdi><span class="woocommerce-Price-currencySymbol">$</span>10.00</bdi></span> </td>
+<td>June 27, 2021</td>
+</tr>
+<tr>
+<td>
+Anonymous </td>
+<td>
+<span class="woocommerce-Price-amount amount"><bdi><span class="woocommerce-Price-currencySymbol">$</span>10.00</bdi></span> </td>
+<td>June 27, 2021</td>
+</tr>
+<tr>
+<td>
+Anonymous </td>
+<td>
+<span class="woocommerce-Price-amount amount"><bdi><span class="woocommerce-Price-currencySymbol">$</span>10.00</bdi></span> </td>
+<td>June 26, 2021</td>
+</tr>
+<tr>
+<td>
+Anonymous </td>
+<td>
+<span class="woocommerce-Price-amount amount"><bdi><span class="woocommerce-Price-currencySymbol">$</span>200.00</bdi></span> </td>
+<td>June 26, 2021</td>
+</tr>
+<tr>
+<td>
+Anonymous </td>
+<td>
+<span class="woocommerce-Price-amount amount"><bdi><span class="woocommerce-Price-currencySymbol">$</span>100.00</bdi></span> </td>
+<td>June 26, 2021</td>
+</tr>
+<tr>
+<td>
+Anonymous </td>
+<td>
+<span class="woocommerce-Price-amount amount"><bdi><span class="woocommerce-Price-currencySymbol">$</span>10.00</bdi></span> </td>
+<td>June 26, 2021</td>
+</tr>
+<tr>
+<td>
+Anonymous </td>
+<td>
+<span class="woocommerce-Price-amount amount"><bdi><span class="woocommerce-Price-currencySymbol">$</span>10.00</bdi></span> </td>
+<td>June 25, 2021</td>
+</tr>
+<tr>
+<td>
+Anonymous </td>
+<td>
+<span class="woocommerce-Price-amount amount"><bdi><span class="woocommerce-Price-currencySymbol">$</span>10.00</bdi></span> </td>
+<td>June 25, 2021</td>
+</tr>
+<tr>
+<td>
+Anonymous </td>
+<td>
+<span class="woocommerce-Price-amount amount"><bdi><span class="woocommerce-Price-currencySymbol">$</span>10.00</bdi></span> </td>
+<td>June 25, 2021</td>
+</tr>
+<tr>
+<td>
+Anonymous </td>
+<td>
+<span class="woocommerce-Price-amount amount"><bdi><span class="woocommerce-Price-currencySymbol">$</span>10.00</bdi></span> </td>
+<td>June 25, 2021</td>
+</tr>
+<tr>
+<td>
+Anonymous </td>
+<td>
+<span class="woocommerce-Price-amount amount"><bdi><span class="woocommerce-Price-currencySymbol">$</span>50.00</bdi></span> </td>
+<td>June 25, 2021</td>
+</tr>
+<tr>
+<td>
+Anonymous </td>
+<td>
+<span class="woocommerce-Price-amount amount"><bdi><span class="woocommerce-Price-currencySymbol">$</span>5.00</bdi></span> </td>
+<td>June 25, 2021</td>
+</tr>
+<tr>
+<td>
+Anonymous </td>
+<td>
+<span class="woocommerce-Price-amount amount"><bdi><span class="woocommerce-Price-currencySymbol">$</span>50.00</bdi></span> </td>
+<td>June 25, 2021</td>
+</tr>
+<tr>
+<td>
+Anonymous </td>
+<td>
+<span class="woocommerce-Price-amount amount"><bdi><span class="woocommerce-Price-currencySymbol">$</span>5,000.00</bdi></span> </td>
+<td>June 25, 2021</td>
+</tr>
+<tr>
+<td>
+Anonymous </td>
+<td>
+<span class="woocommerce-Price-amount amount"><bdi><span class="woocommerce-Price-currencySymbol">$</span>500.00</bdi></span> </td>
+<td>June 25, 2021</td>
+</tr>
+<tr>
+<td>
+Anonymous </td>
+<td>
+<span class="woocommerce-Price-amount amount"><bdi><span class="woocommerce-Price-currencySymbol">$</span>500.00</bdi></span> </td>
+<td>June 25, 2021</td>
+</tr>
+<tr>
+<td>
+Anonymous </td>
+<td>
+<span class="woocommerce-Price-amount amount"><bdi><span class="woocommerce-Price-currencySymbol">$</span>1,000.00</bdi></span> </td>
+<td>June 25, 2021</td>
+</tr>
+<tr>
+<td>
+Anonymous </td>
+<td>
+<span class="woocommerce-Price-amount amount"><bdi><span class="woocommerce-Price-currencySymbol">$</span>500.00</bdi></span> </td>
+<td>June 25, 2021</td>
+</tr>
+<tr>
+<td>
+Anonymous </td>
+<td>
+<span class="woocommerce-Price-amount amount"><bdi><span class="woocommerce-Price-currencySymbol">$</span>100.00</bdi></span> </td>
+<td>June 25, 2021</td>
+</tr>
+</tbody></table>
+</div>
+<div id="wpneo-tab-reviews" class="wpneo-tab-content">
+<div id="reviews" class="woocommerce-Reviews">
+<div id="comments">
+<h2 class="woocommerce-Reviews-title">
+Reviews </h2>
+<p class="woocommerce-noreviews">There are no reviews yet.</p>
+</div>
+<hr class="tall">
+<div id="review_form_wrapper">
+<div id="review_form">
+<div id="respond" class="comment-respond">
+<h3 id="reply-title" class="comment-reply-title">Be the first to review "$SMC Fund Raising for Gate.io" <small><a rel="nofollow" id="cancel-comment-reply-link" href="/web/20210702112626/https://safemooncash.org/campaign/gate-io/#respond" style="display:none;">Cancel reply</a></small></h3><form action="https://web.archive.org/web/20210702112626/https://safemooncash.org/wp-comments-post.php" method="post" id="commentform" class="comment-form" novalidate=""><div class="comment-form-rating"><label for="rating">Your rating&nbsp;<span class="required">*</span></label><select name="rating" id="rating" required="">
+<option value="">Rate…</option>
+<option value="5">Perfect</option>
+<option value="4">Good</option>
+<option value="3">Average</option>
+<option value="2">Not that bad</option>
+<option value="1">Very poor</option>
+</select></div><p class="comment-form-comment"><label for="comment">Your review <span class="required">*</span></label><textarea id="comment" name="comment" cols="45" rows="8" required=""></textarea></p><p class="comment-form-author"><label for="author">Name&nbsp;<span class="required">*</span></label><input id="author" name="author" type="text" value="" size="30" required=""></p>
+<p class="comment-form-email"><label for="email">Email&nbsp;<span class="required">*</span></label><input id="email" name="email" type="email" value="" size="30" required=""></p>
+<p class="comment-form-cookies-consent"><input id="wp-comment-cookies-consent" name="wp-comment-cookies-consent" type="checkbox" value="yes"> <label for="wp-comment-cookies-consent">Save my name, email, and website in this browser for the next time I comment.</label></p>
+<p class="form-submit"><input name="submit" type="submit" id="submit" class="submit" value="Submit"> <input type="hidden" name="comment_post_ID" value="664" id="comment_post_ID">
+<input type="hidden" name="comment_parent" id="comment_parent" value="0">
+</p><input type="hidden" id="ct_checkjs_2bcab9d935d219641434683dd9d18a03" name="ct_checkjs" value="0"></form> </div>
+</div>
+</div>
+<div class="clear"></div>
+</div>
+</div>
+</div>
+<div class="clear-float"></div>
+</div>
+<meta itemprop="url" content="https://web.archive.org/web/20210702112626/https://safemooncash.org/campaign/gate-io/">
+</div>
+</div>
+</div>
+</div>
+</div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-info">
+                    <div class="footer-logo">
+                        <img src="https://iili.io/KUDUSZx.md.png" alt="Safemoon Cash">
+                    </div>
+                    <div class="contact-info">
+                        <ul>
+                            <li>
+                                <i class="far fa-dot-circle"></i>
+                                <span><strong>Location:</strong> The Internet</span>
+                            </li>
+                            <li>
+                                <i class="far fa-envelope"></i>
+                                <span><strong>Contact Us:</strong> <a href="mailto:team@safemooncash.org">team@safemooncash.org</a></span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="footer-social">
+                    <div class="social-icons">
+                        <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
+                        <a href="#" target="_blank"><i class="fab fa-telegram"></i></a>
+                        <a href="#" target="_blank"><i class="fab fa-reddit"></i></a>
+                        <a href="#" target="_blank"><i class="fab fa-discord"></i></a>
+                        <a href="#" target="_blank"><i class="fab fa-youtube"></i></a>
+                        <a href="#" target="_blank"><i class="fab fa-tiktok"></i></a>
+                        <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a href="#" target="_blank"><i class="fab fa-medium"></i></a>
+                        <a href="#" target="_blank"><i class="fab fa-github"></i></a>
+                    </div>
+                    <div class="footer-links">
+                        <ul>
+                            <li><a href="index.html">Home</a></li>
+                            <li><a href="about.html">About</a></li>
+                            <li><a href="contact.html">Contact</a></li>
+                            <li><a href="gate-io.html">Gate.io</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>Safemoon Cash - All Right Reserved 2021</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            const menu = document.getElementById('mainMenu');
+            menu.classList.toggle('active');
+        }
+    </script>
+</body>
+</html>

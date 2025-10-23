@@ -1,0 +1,814 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="title" content="Safemoon Cash - Community-Driven BEP-20 Cryptocurrency">
+    <meta name="description" content="Safemoon Cash is a rug-proof, ownership renounced, community-driven cryptocurrency project on the Binance Smart Chain with superior tokenomics and passive rewards.">
+    <link rel="canonical" href="https://safemooncash.org/">
+    <title>Safemoon Cash - Community-Driven Cryptocurrency</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #0a0a0a;
+            color: #ffffff;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header Styles */
+        header {
+            background-color: #161141;
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 60px;
+            width: auto;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 30px;
+        }
+
+        nav a {
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav a:hover,
+        nav a.active {
+            color: #d4870d;
+        }
+
+        .mobile-toggle {
+            display: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: #ffffff;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #161141 0%, #2a1f5e 100%);
+            padding: 80px 0;
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .hero h3 {
+            font-size: 26px;
+            line-height: 28px;
+            margin-bottom: 15px;
+            color: #d4870d;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+
+        .hero p {
+            font-size: 18px;
+            margin-bottom: 30px;
+        }
+
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            margin-bottom: 20px;
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .contract-box {
+            background-color: rgba(255,255,255,0.1);
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+
+        .contract-box p {
+            margin-bottom: 10px;
+            font-size: 14px;
+        }
+
+        .contract-input {
+            display: flex;
+            gap: 10px;
+        }
+
+        .contract-input input {
+            flex: 1;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+
+        .contract-input button {
+            padding: 10px 20px;
+            background-color: #d4870d;
+            color: #ffffff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+
+        .contract-input button:hover {
+            background-color: #b8730a;
+        }
+
+        .hero-image img {
+            width: 100%;
+            max-width: 500px;
+        }
+
+        /* Tokenomics Section */
+        .tokenomics {
+            padding: 80px 0;
+            background-color: #1a1a1a;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 36px;
+            margin-bottom: 50px;
+            font-weight: bold;
+        }
+
+        .tokenomics-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+        }
+
+        .token-box {
+            background-color: rgba(255,255,255,0.05);
+            padding: 30px;
+            border-radius: 10px;
+            display: flex;
+            gap: 20px;
+            transition: transform 0.3s;
+        }
+
+        .token-box:hover {
+            transform: translateY(-5px);
+        }
+
+        .token-icon {
+            font-size: 68px;
+            color: #d4870d;
+        }
+
+        .token-box h3 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .token-box p {
+            font-size: 16px;
+            line-height: 24px;
+        }
+
+        /* Who We Are Section */
+        .who-we-are {
+            padding: 80px 0;
+            background: linear-gradient(135deg, #2a1f5e 0%, #161141 100%);
+        }
+
+        .who-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .who-text h2 {
+            font-size: 36px;
+            margin-bottom: 30px;
+            font-weight: bold;
+        }
+
+        .who-text p {
+            margin-bottom: 20px;
+            font-size: 16px;
+            line-height: 1.8;
+        }
+
+        .who-image img {
+            width: 100%;
+            max-width: 400px;
+        }
+
+        /* Buy/Charts Section */
+        .buy-charts {
+            padding: 80px 0;
+            background-color: #1a1a1a;
+        }
+
+        .buy-charts-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+        }
+
+        .buy-section h2,
+        .charts-section h2 {
+            font-size: 32px;
+            margin-bottom: 30px;
+            font-weight: bold;
+        }
+
+        .btn {
+            display: block;
+            padding: 15px 30px;
+            background-color: #161141;
+            color: #ffffff;
+            text-decoration: none;
+            text-align: center;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            transition: all 0.3s;
+            font-weight: 600;
+        }
+
+        .btn:hover {
+            background-color: #d4870d;
+            transform: translateX(5px);
+        }
+
+        /* Team Section */
+        .team {
+            padding: 80px 0;
+            background: linear-gradient(135deg, #161141 0%, #2a1f5e 100%);
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .team-member {
+            text-align: center;
+        }
+
+        .flag-img {
+            width: 100%;
+            max-width: 150px;
+            height: 100px;
+            object-fit: cover;
+            margin-bottom: 15px;
+        }
+
+        .team-member h4 {
+            font-size: 18px;
+            margin-bottom: 5px;
+        }
+
+        .team-member h5 {
+            font-size: 14px;
+            color: #d4870d;
+            margin-bottom: 5px;
+        }
+
+        .team-member h6 {
+            font-size: 14px;
+            color: #cccccc;
+        }
+
+        .more-info-btn {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        /* FAQ Section */
+        .faq {
+            padding: 80px 0;
+            background-color: #1a1a1a;
+        }
+
+        .faq-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background-color: rgba(255,255,255,0.05);
+            margin-bottom: 15px;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .faq-question {
+            padding: 20px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 18px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background-color 0.3s;
+        }
+
+        .faq-question:hover {
+            background-color: rgba(255,255,255,0.1);
+        }
+
+        .faq-answer {
+            padding: 0 20px;
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.3s;
+        }
+
+        .faq-item.active .faq-answer {
+            padding: 20px;
+            max-height: 500px;
+        }
+
+        .faq-answer p {
+            line-height: 1.8;
+        }
+
+        .faq-answer a {
+            color: #d4870d;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #161141;
+            padding: 60px 0 20px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 50px;
+            margin-bottom: 40px;
+        }
+
+        .footer-logo img {
+            max-width: 200px;
+            margin-bottom: 20px;
+        }
+
+        .contact-info {
+            margin-bottom: 20px;
+        }
+
+        .contact-info ul {
+            list-style: none;
+        }
+
+        .contact-info li {
+            margin-bottom: 15px;
+            display: flex;
+            gap: 10px;
+        }
+
+        .contact-info i {
+            color: #d4870d;
+            margin-top: 3px;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin-bottom: 30px;
+        }
+
+        .social-icons a {
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255,255,255,0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            color: #ffffff;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+
+        .social-icons a:hover {
+            background-color: #d4870d;
+            transform: scale(1.1);
+        }
+
+        .footer-links ul {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: #ffffff;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: #d4870d;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .mobile-toggle {
+                display: block;
+            }
+
+            nav ul {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 80px;
+                left: 0;
+                right: 0;
+                background-color: #161141;
+                padding: 20px;
+            }
+
+            nav ul.active {
+                display: flex;
+            }
+
+            .hero-content,
+            .who-content,
+            .buy-charts-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .tokenomics-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .team-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+
+            .hero h1 {
+                font-size: 32px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <a href="index.html">
+                        <img src="https://iili.io/KUDUSZx.md.png" alt="Safemoon Cash Logo">
+                    </a>
+                </div>
+                <nav>
+                    <a class="mobile-toggle" onclick="toggleMenu()"><i class="fas fa-bars"></i></a>
+                    <ul id="mainMenu">
+                        <li><a href="index.html" class="active">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="gate-io.html">Gate.io</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h3>Welcome to the base of</h3>
+                    <h1>SAFEMOON CASH</h1>
+                    <p>The leading BEP-20 (crypto)currency project with Tokenomics: run and owned by its community.</p>
+
+                    <div class="video-container">
+                        <iframe src="https://www.youtube.com/embed/irqplaiVyDc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+
+                    <div class="contract-box">
+                        <p>BEP-20 Contract Address:</p>
+                        <div class="contract-input">
+                            <input type="text" value="0xf017e2773e4ee0590c81d79ccbcf1b2de1d22877" id="contractInput" readonly>
+                            <button onclick="copyContract()">COPY</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <img src="https://web.archive.org/web/20210612061449im_/https://safemooncash.org/wp-content/uploads/2021/06/site_front_page_logo-1.png" alt="Safemoon Cash">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tokenomics Section -->
+    <section class="tokenomics">
+        <div class="container">
+            <h2 class="section-title">SAFEMOON CASH TOKENOMICS</h2>
+            <div class="tokenomics-grid">
+                <div class="token-box">
+                    <div class="token-icon">
+                        <i class="fas fa-percentage"></i>
+                    </div>
+                    <div class="token-content">
+                        <h3>4% TRANSACTION TAX</h3>
+                        <p>Every Safemoon Cash transaction incurs a 4% tax for the benefit of all.</p>
+                    </div>
+                </div>
+
+                <div class="token-box">
+                    <div class="token-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <div class="token-content">
+                        <h3>2% DISTRIBUTED TO HOLDERS</h3>
+                        <p>2% of all transactions (buys, sells and transfers) are distributed to all holders. You increase your Safemoon Cash balance just by holding.</p>
+                    </div>
+                </div>
+
+                <div class="token-box">
+                    <div class="token-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <div class="token-content">
+                        <h3>OWNERSHIP RENOUNCED</h3>
+                        <p>The contract is renounced and Safemoon Cash is a project owned by the community. The liquidity was also burned on launch, so there is no rug to pull.</p>
+                    </div>
+                </div>
+
+                <div class="token-box">
+                    <div class="token-icon">
+                        <i class="fas fa-water"></i>
+                    </div>
+                    <div class="token-content">
+                        <h3>2% AUTOMATICALLY TO LIQUIDITY</h3>
+                        <p>2% of each transaction is sent to the (automated) liquidity pool to create a steadily rising price floor, meaning improved stability.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Who We Are Section -->
+    <section class="who-we-are">
+        <div class="container">
+            <div class="who-content">
+                <div class="who-text">
+                    <h2>WHO WE ARE</h2>
+                    <p>Safemoon Cash is, in short, a rug-proof, ownership renounced, community-driven project on the Binance Smart Chain. Bitcoin Cash reached an ATH of 0.25 Bitcoin. Our first goal is for Safemoon Cash to reach 25% of Safemoon's peak market capitalisation. We are fully committed and determined to make this happen, but our ambitions go much further. We believe we can – in time – be a household name, and a long-standing top 25 crypto project.</p>
+
+                    <p>And we are deadly serious: We believe our tokenomics are superior to those of Safemoon, and so is our community. Safemoon Cash is 100% community-driven. This is our strength and makes us stand out. We have an incredibly dedicated community, who all bring a multitude of skills to the table. Our core team (Strategy Team) consists of tech enthusiasts, graphic designers, software fanatics, and marketing specialists who are all passionate about cryptocurrency. Safemoon Cash will bring various use cases to the world of crypto that will set us apart from the masses.</p>
+
+                    <p>Safemoon Cash was stealth-launched by members of the BSC community in April 2021 after Safemoon reached a market cap of over four billion dollars. With its high transaction tax, it's the early holders of Safemoon that profit most. In contrast, Safemoon Cash gives holders passive rewards through static reflections. By staking Safemoon Cash in a pool, it raises its own capital, ensuring liquidity. We believe in our superior tokenomics and the fact that we have fully renounced ownership of the smart contract makes us unique. With the help of our community, not just the sky – but rather the galaxy – is the limit. Everybody is welcome, everybody is equal. Get on board and prepare for the greatest adventure of our lifetimes!</p>
+                </div>
+                <div class="who-image">
+                    <img src="https://web.archive.org/web/20210612061449im_/https://safemooncash.org/wp-content/uploads/2021/05/rock.png" alt="Safemoon Cash">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Buy/Charts Section -->
+    <section class="buy-charts">
+        <div class="container">
+            <div class="buy-charts-grid">
+                <div class="buy-section">
+                    <h2>BUY</h2>
+                    <a href="#" class="btn">Buy at $SMC SWAP</a>
+                    <a href="#" class="btn">Buy at Bogged Finance</a>
+                    <a href="#" class="btn">Buy at PancakeSwap (V1)</a>
+                    <a href="#" class="btn">Buy at Probit.com Exchange</a>
+                    <a href="#" class="btn">Buy at XT.com Exchange</a>
+                    <a href="#" class="btn">Buy at Bibox.com Exchange</a>
+                    <a href="#" class="btn">Buy at Hotbit.io Exchange</a>
+                </div>
+                <div class="charts-section">
+                    <h2>CHARTS</h2>
+                    <a href="#" class="btn">Bogged Finance</a>
+                    <a href="#" class="btn">Poocoin</a>
+                    <a href="#" class="btn">CoinMarketCap</a>
+                    <a href="#" class="btn">CoinGecko</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq">
+        <div class="container">
+            <h2 class="section-title">FAQ</h2>
+            <div class="faq-container">
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        What is BSC?
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Binance Smart Chain (BSC) is a blockchain network built for running smart contract-based applications. BSC runs in parallel with Binance's native Binance Chain (BC), which allows users to get the best of both worlds: the high transaction capacity of BC and the smart contract functionality of BSC.</p>
+                        <p>The aim of the platform is to enable developers to build decentralised applications (DApps) and help users manage their digital assets cross-chain with low latency and large capacity.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        How do I buy Safemoon Cash?
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>We recommend buying on Bogged.Finance or through our $SMC SWAP. You can find all available exchanges in the BUY section above.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        Is the team anon?
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes, for now we are. Our team is made up primarily of tech enthusiasts from our community. Some of us are software programmers, graphic designers or marketing specialists, but we all have one thing in common: we are passionate about cryptocurrency.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        Funds are safu?
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes! We burned the liquidity when we started the token. This is renounce ownership at its finest. Ownership renouncement has been completed and verified on BSCScan.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        Has Safemoon Cash been audited?
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes, we were successfully audited twice (by Techrate and RD Auditors). Our project is un-ruggable, as ownership is renounced and liquidity burned.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        Do you have a white paper?
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes, you can find our white paper on our website or request it through our contact page.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        Disclaimer
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>General information on this website is in no way meant as financial advice. The individual voluntary contributors to this project are not responsible, and cannot be held accountable, for any present or future risk involved with your personal investment into Safemoon Cash or in other projects that are mentioned on this website. DeFi products, on the Binance smart chain or other chains, are considered a "high risk / high reward" investment and thus follow the golden rules: never invest more than you can afford to lose and do your own research (DYOR).</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-info">
+                    <div class="footer-logo">
+                        <img src="https://iili.io/KUDUSZx.md.png" alt="Safemoon Cash">
+                    </div>
+                    <div class="contact-info">
+                        <ul>
+                            <li>
+                                <i class="far fa-dot-circle"></i>
+                                <span><strong>Location:</strong> The Internet</span>
+                            </li>
+                            <li>
+                                <i class="far fa-envelope"></i>
+                                <span><strong>Contact Us:</strong> <a href="mailto:team@safemooncash.org">team@safemooncash.org</a></span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="footer-social">
+                    <div class="social-icons">
+                        <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
+                        <a href="#" target="_blank"><i class="fab fa-telegram"></i></a>
+                        <a href="#" target="_blank"><i class="fab fa-reddit"></i></a>
+                        <a href="#" target="_blank"><i class="fab fa-discord"></i></a>
+                        <a href="#" target="_blank"><i class="fab fa-youtube"></i></a>
+                        <a href="#" target="_blank"><i class="fab fa-tiktok"></i></a>
+                        <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a href="#" target="_blank"><i class="fab fa-medium"></i></a>
+                        <a href="#" target="_blank"><i class="fab fa-github"></i></a>
+                    </div>
+                    <div class="footer-links">
+                        <ul>
+                            <li><a href="index.html">Home</a></li>
+                            <li><a href="about.html">About</a></li>
+                            <li><a href="contact.html">Contact</a></li>
+                            <li><a href="gate-io.html">Gate.io</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>Safemoon Cash - All Right Reserved 2021</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function copyContract() {
+            const contractInput = document.getElementById('contractInput');
+            contractInput.select();
+            contractInput.setSelectionRange(0, 99999);
+            document.execCommand('copy');
+            alert('Contract address copied: ' + contractInput.value);
+        }
+
+        function toggleFaq(element) {
+            const faqItem = element.parentElement;
+            const isActive = faqItem.classList.contains('active');
+
+            // Close all FAQ items
+            document.querySelectorAll('.faq-item').forEach(item => {
+                item.classList.remove('active');
+            });
+
+            // Open clicked item if it wasn't active
+            if (!isActive) {
+                faqItem.classList.add('active');
+            }
+        }
+
+        function toggleMenu() {
+            const menu = document.getElementById('mainMenu');
+            menu.classList.toggle('active');
+        }
+    </script>
+</body>
+</html>
