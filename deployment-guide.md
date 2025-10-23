@@ -8,10 +8,11 @@
 3. Click on **File Manager**
 4. Navigate to `public_html` folder (or `public_html/subdomain` if using subdomain)
 5. Delete any default index.html files
-6. Upload your 3 files:
+6. Upload your HTML files:
    - index.html
    - about.html
    - contact.html
+   - gate-io.html
 7. Visit your domain to see the site live!
 
 ### To Update Later:
@@ -64,7 +65,9 @@ This method lets you update your site by running `git pull` instead of manually 
 
 6. **Switch to Your Branch:**
    ```bash
-   git checkout claude/recreate-safemoon-cash-site-011CUN9vCAf8pHF56C3gfxbm
+   git checkout main
+   # Or if using development branch:
+   # git checkout claude/setup-github-deployment-011CUQ8T83jukHJYMXnHDckY
    ```
 
 ### To Update Your Site Later:
@@ -76,44 +79,52 @@ ssh username@yourdomain.com
 cd public_html
 
 # Pull latest changes
-git pull origin claude/recreate-safemoon-cash-site-011CUN9vCAf8pHF56C3gfxbm
+git pull origin main
 ```
 
 ---
 
-## Method 3: Automated Deployment (Advanced)
+## Method 3: Automated Deployment (Advanced) ⭐ RECOMMENDED
 
-Set up GitHub Actions to automatically deploy when you push changes.
+Set up GitHub Actions to automatically deploy when you push changes. The workflow file is already created at `.github/workflows/deploy.yml`!
 
-### Create `.github/workflows/deploy.yml`:
+### Setup Instructions:
 
-```yaml
-name: Deploy to Namecheap
+1. **Get Your FTP Credentials from Namecheap:**
+   - Log into Namecheap cPanel
+   - Look for "FTP Accounts" or "File Manager"
+   - Note your FTP details:
+     - **Server:** Usually `ftp.yourdomain.com` or your domain name
+     - **Username:** Your cPanel username (or FTP account username)
+     - **Password:** Your cPanel password (or FTP account password)
 
-on:
-  push:
-    branches:
-      - claude/recreate-safemoon-cash-site-011CUN9vCAf8pHF56C3gfxbm
+2. **Add Secrets to GitHub Repository:**
+   - Go to your GitHub repository: https://github.com/billyburst/safemooncash.org
+   - Click **Settings** (top menu)
+   - In left sidebar, click **Secrets and variables** > **Actions**
+   - Click **New repository secret** for each:
+     - Name: `FTP_SERVER`, Value: `ftp.yourdomain.com` (your FTP host)
+     - Name: `FTP_USERNAME`, Value: Your FTP username
+     - Name: `FTP_PASSWORD`, Value: Your FTP password
 
-jobs:
-  deploy:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
+3. **Test the Deployment:**
+   - Make any change to your site (e.g., edit index.html)
+   - Commit and push to the `claude/setup-github-deployment-011CUQ8T83jukHJYMXnHDckY` branch or `main` branch
+   - Go to **Actions** tab in GitHub to watch the deployment
+   - Your site will automatically update in 1-2 minutes!
 
-      - name: Deploy to server
-        uses: SamKirkland/FTP-Deploy-Action@4.3.0
-        with:
-          server: ${{ secrets.FTP_SERVER }}
-          username: ${{ secrets.FTP_USERNAME }}
-          password: ${{ secrets.FTP_PASSWORD }}
-          local-dir: ./
-          server-dir: /public_html/
-```
+### How It Works:
+- Every time you push to the configured branches, GitHub Actions automatically:
+  1. Checks out your code
+  2. Connects to your Namecheap hosting via FTP
+  3. Uploads all HTML files to `public_html`
+  4. Excludes unnecessary files (.git, README, etc.)
 
-Then add secrets in GitHub:
-- Settings > Secrets > Actions > New repository secret
-- Add: FTP_SERVER, FTP_USERNAME, FTP_PASSWORD
+### Viewing Deployment Status:
+- GitHub repo > **Actions** tab
+- Click on any workflow run to see logs
+- Green checkmark = successful deployment
+- Red X = failed (check logs for details)
 
 ---
 
@@ -153,7 +164,8 @@ Your `public_html` folder should look like:
 public_html/
 ├── index.html
 ├── about.html
-└── contact.html
+├── contact.html
+└── gate-io.html
 ```
 
 **Important:** Delete any default `index.html` or `index.php` files that Namecheap creates.
